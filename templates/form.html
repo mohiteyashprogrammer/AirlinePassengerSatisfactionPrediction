@@ -1,0 +1,248 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Passenger Satisfaction Prediction</title>
+    <div style="background-image: url(https://cdn.avbuyer.com/live/uploads/image/361001_361100/aircraft-private-jets-honda-hondajet-361093_4c6e39c4b52b32eb.jpg);">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+    
+
+</head>
+
+<body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Airline Passenger Satisfaction Prediction BY Yash Mohite</a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+
+    <div class="container">
+
+    <form action="{{url_for('predict_datapoint')}}" method="POST">   
+        <div class="form-group">
+            <label for="Gender">Gender:</label>
+            <select id="Gender" name="Gender">
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+        </div> 
+
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <input type="text" id="Age" name="Age" placeholder="Enter value (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="Type_of_Travel">Type_of_Travel:</label>
+            <select id="Type_of_Travel" name="Type_of_Travel">
+                <option value="Personal Travel">Personal Travel</option>
+                <option value="Business travel">Business travel</option>
+            </select>
+        </div> 
+
+        <div class="form-group">
+            <label for="Class">Class:</label>
+            <select id="Class" name="Class">
+                <option value="Eco Plus">Eco Plus</option>
+                <option value="Business">Business</option>
+                <option value="Eco">Eco</option>
+            </select>
+        </div> 
+
+        <div class="form-group">
+            <label for="Flight_Distance">Flight_Distance:</label>
+            <input type="text" id="Flight_Distance" name="Flight_Distance" placeholder="Enter value (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="Inflight_wifi_service">Inflight_wifi_service:</label>
+            <select id="Inflight_wifi_service" name="Inflight_wifi_service">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Ease_of_Online_booking">Ease_of_Online_booking:</label>
+            <select id="Ease_of_Online_booking" name="Ease_of_Online_booking">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Food_and_drink">Food_and_drink:</label>
+            <select id="Food_and_drink" name="Food_and_drink">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Online_boarding">Online_boarding:</label>
+            <select id="Online_boarding" name="Online_boarding">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Seat_comfort">Seat_comfort:</label>
+            <select id="Seat_comfort" name="Seat_comfort">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Inflight_entertainment">Inflight_entertainment:</label>
+            <select id="Inflight_entertainment" name="Inflight_entertainment">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="On_board_service">On_board_service:</label>
+            <select id="On_board_service" name="On_board_service">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Leg_rooms_service">Leg_rooms_service:</label>
+            <select id="Leg_rooms_service" name="Leg_rooms_service">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Baggage_handling">Baggage_handling:</label>
+            <select id="Baggage_handling" name="Baggage_handling">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Checkin_service">Checkin_service:</label>
+            <select id="Checkin_service" name="Checkin_service">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Inflight_service">Inflight_service:</label>
+            <select id="Inflight_service" name="Inflight_service">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Cleanliness">Cleanliness:</label>
+            <select id="Cleanliness" name="Cleanliness">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+
+<!-- Submit -->
+<input type="submit" value="Submit Here" class="btn btn-secondary">
+</form>
+
+<br>
+<br>
+<h3 style="color: black">{{ final_result }}</h3>
+
+<br>
+<br>
+<p>Yash Mohite</p>
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+
+
+
+        
+
+        
