@@ -1,6 +1,6 @@
-# neurolab-flask
+# This Is Demo Video
 
-![image](https://user-images.githubusercontent.com/115451707/196919992-edcfea8b-e3f6-4f35-9398-43be66b5622d.png)
+https://user-images.githubusercontent.com/114924851/235423661-1c6cee50-805a-4414-9cea-f6f3be69a56d.mp4
 
 
 To run flask application 
@@ -14,3 +14,7 @@ To access your flask application open new tab in and paste the url:
 ```
 https://{your_url}.ineuron.app:5000/
 ```
+
+
+https://user-images.githubusercontent.com/114924851/235423661-1c6cee50-805a-4414-9cea-f6f3be69a56d.mp4
+
